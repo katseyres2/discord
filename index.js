@@ -3,7 +3,6 @@ const { Client, Collection, Intents, ClientUser } = require("discord.js");
 const { token, clientId, guildId } = require("./config.json");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
-const { SlashCommandBuilder } = require("@discordjs/builders");
 
 const client = new Client({intents: [
     Intents.FLAGS.GUILDS,
@@ -11,8 +10,8 @@ const client = new Client({intents: [
     Intents.FLAGS.DIRECT_MESSAGES
 ]});
 
-client.commands = new Collection();
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
+client.commands = new Collection();
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
@@ -31,10 +30,14 @@ for (const file of eventFiles) {
     console.log(`${event.name} charged`);
 }
 
-
 // client.on("interactionCreate", (interaction) => {
 //     console.log("interaction !");
 //     interaction.options.getUser("mention");
+//     interaction.
 // })
+
+client.on('guildMemberAdd', (member) => {
+    console.log("new member");
+});
 
 client.login(token);
