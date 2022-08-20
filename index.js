@@ -1,13 +1,21 @@
 const fs = require("fs");
-const { Client, Collection, Intents, ClientUser } = require("discord.js");
+const { Client, Collection, Intents, ClientUser, GatewayIntentBits } = require("discord.js");
+// go to guild advanced settings, enable developper mode
+// right click on the guild icon on the left menu and copy ID
+// right click on the bot icon on the right menu and copy ID
 const { token, clientId, guildId } = require("./config.json");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
 
 const client = new Client({intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.DIRECT_MESSAGES
+    // Intents.FLAGS.GUILDS,
+    // Intents.FLAGS.GUILD_MESSAGES,
+    // Intents.FLAGS.DIRECT_MESSAGES,
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildPresences,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildMessageReactions,
 ]});
 
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));

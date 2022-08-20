@@ -6,8 +6,7 @@ I'm gonna create a new Discord bot with several commands. Just write me if you g
 
 ## Commands
 
-``/sayhi @username``  
-
-``/addroles @username #role #role ...``  
-
-``/``
+```text
+/sayhi @username
+/addroles @username #role #role
+```
