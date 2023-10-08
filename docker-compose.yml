@@ -5,6 +5,6 @@ services:
       - type: bind
         source: ./bot
         target: /var/bot
-    command: sh entrypoint.sh
+    # command: node index.js
 
 
