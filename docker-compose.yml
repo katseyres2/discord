@@ -1,0 +1,10 @@
+services:
+  bot:
+    image: katseyres/discord:0.1
+    volumes:
+      - type: bind
+        source: ./bot
+        target: /var/bot
+    command: sh entrypoint.sh
+
+
