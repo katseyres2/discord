@@ -23,4 +23,4 @@ add `./bot/config.json` file with the following content:
 	"token": "your-private-bot-token"
 }
 ```
-Test
+Test2
